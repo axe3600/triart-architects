@@ -1,0 +1,62 @@
+/* frontend/src/App.css */
+
+/*
+ * Les styles globaux du site TriArt sont centralisés
+ * dans index.css et dans les classes Tailwind.
+ *
+ * Les styles spécifiques aux composants doivent rester
+ * dans leurs fichiers respectifs.
+ */
+
+/* Prévention du débordement horizontal */
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Évite les débordements horizontaux accidentels */
+body {
+  margin: 0;
+  overflow-x: clip;
+}
+
+/* Les médias ne doivent pas dépasser leur conteneur */
+img,
+video {
+  max-width: 100%;
+}
+
+/* Respect des préférences de réduction des animations */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Apparition progressive des liens de navigation */
+@keyframes headerFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .group,
+  header a,
+  header button {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+  }
+}
